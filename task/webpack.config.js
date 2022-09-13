@@ -46,10 +46,6 @@ module.exports = (env, argv) => {
   };
 
   if (isProduction) {
-    config.plugins.push(new webpack.HotModuleReplacementPlugin());
-  }
-
-  if (isProduction) {
     config.plugins.push(
       new MiniCssExtractPlugin({
         filename: '[name].css',
