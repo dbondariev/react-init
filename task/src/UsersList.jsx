@@ -1,51 +1,47 @@
-import React from 'react';
-import User from './User.jsx';
-import Pagination from './Pagination.jsx';
+import React from "react";
 
-const numberPerPage = 3;
+import User from "./User.jsx";
+import Pagination from "./Pagination.jsx";
 
-let from = 0;
-let to = numberPerPage;
+import "./usersList.scss";
 
 class UsersList extends React.Component {
   state = {
-    itemsPerPage: 3,
     currentPage: 1,
-    usersPerPage: this.props.users.slice(from, to),
   };
 
-  goPrev = () => {
-    from -= numberPerPage;
-    to = from + numberPerPage;
+  itemsPerPage = 3;
 
+  goPrev = () => {
     this.setState({
       currentPage: this.state.currentPage - 1,
-      usersPerPage: this.props.users.slice(from, to),
     });
   };
 
   goNext = () => {
-    from = to;
-    to += numberPerPage;
-
     this.setState({
       currentPage: this.state.currentPage + 1,
-      usersPerPage: this.props.users.slice(from, to),
     });
   };
 
   render() {
+    const totalItems = this.props.users.length;
+    const startItem = (this.state.currentPage - 1) * this.itemsPerPage;
+    const endItem = startItem + this.itemsPerPage;
+    const usersList = this.props.users.slice(startItem, endItem);
+
     return (
       <div>
         <Pagination
           goPrev={this.goPrev}
           goNext={this.goNext}
           currentPage={this.state.currentPage}
-          totalItems={this.props.users.length}
-          itemsPerPage={this.state.itemsPerPage}
+          totalItems={totalItems}
+          itemsPerPage={this.props.itemsPerPage}
         />
+
         <ul className="users">
-          {this.state.usersPerPage.map(user => (
+          {usersList.map((user) => (
             <User key={user.id} {...user} />
           ))}
         </ul>
