@@ -8,7 +8,7 @@ const users = [
   { id: "id - 07", name: "Jack", age: 19 },
   { id: "id - 08", name: "Bill", age: 21 },
   { id: "id - 09", name: "Dick", age: 22 },
-  { id: "id - 10", name: "Antony", age: 60 },
+  { id: "id - 10", name: "Dima", age: 34 },
 ];
 
 export default users;
