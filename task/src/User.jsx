@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './user.scss';
+import './index.scss';
 
 const User = ({name, age}) => {
   return (
