@@ -1,5 +1,5 @@
 const users = [
-  { id: "id - 01", name: "Tom", age: 20 },
+  { id: "id - 01", name: "Dima", age: 34 },
   { id: "id - 02", name: "Bob", age: 100 },
   { id: "id - 03", name: "Jim", age: 32 },
   { id: "id - 04", name: "Tim", age: 45 },
